@@ -1,0 +1,21 @@
+#main-page-body {
+    background-color: rgb(162, 201, 225);
+    height: 1600px;
+}
+#global-text {
+    text-align: center;
+    padding-top: 2rem ;
+}
+#img {
+    padding-top: 1rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    max-width: 12rem;
+    
+}
+
+#search-box {
+    text-align: center;
+    margin-top: 8em;
+}
