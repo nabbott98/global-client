@@ -18,9 +18,9 @@ const Home = (props) => {
 				</form> */}
 			</div>
 			<div class="container">
-				<form id='form-search-btn'>
-				<input id='search-input' type="search" placeholder="Search..."/>
-				<button id='search-btn' type="submit">Search</button>
+				<form id="form-search-button">
+				<input id="input-search" type="search" placeholder="Search..."/>
+				<button id="input-button" type="submit">Search</button>
 				</form>
 			</div>
 		</div>

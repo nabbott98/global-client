@@ -12,6 +12,7 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+import ItemIndex from './components/Items/ItemIndex'
 
 const App = () => {
 
@@ -68,6 +69,13 @@ const App = () => {
                 <ChangePassword msgAlert={msgAlert} user={user} />
               </RequireAuth>}
           />
+		    <Route path='/items' element={
+				// Auth not working (401, 422 ERRORS), uncomment when auth is functional
+				// <RequireAuth user={user}>
+					<ItemIndex msgAlert={msgAlert} user={user} />
+				// </RequireAuth>
+				}
+			/>
 				</Routes>
 				{msgAlerts.map((msgAlert) => (
 					<AutoDismissAlert
