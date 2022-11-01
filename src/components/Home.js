@@ -12,19 +12,17 @@ const Home = (props) => {
 			<div id="search-box">
 				{/* <input id="input"></input>
 				<button id="search">Search</button> */}
-				<div class="container">
+				{/* <form>
+				<input type="search" placeholder="Search..."/>
+				<button type="submit">Search</button>
+				</form> */}
+			</div>
+			<div class="container">
 				<form>
 				<input type="search" placeholder="Search..."/>
 				<button type="submit">Search</button>
 				</form>
 			</div>
-			</div>
-			{/* <div class="container">
-				<form>
-				<input type="search" placeholder="Search..."/>
-				<button type="submit">Search</button>
-				</form>
-			</div> */}
 		</div>
 		</>
 	)
