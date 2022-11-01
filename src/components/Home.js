@@ -1,10 +1,29 @@
+import React from 'react'
+import './home.css'
 const Home = (props) => {
 	// const { msgAlert, user } = props
 	console.log('props in home', props)
 
 	return (
 		<>
-			<h2>Home Page</h2>
+		<div id='main-page-body'>
+			<h2 id='global-text'>Successful <span id='E-letter'>E</span> Business, Global Web!</h2>
+			{/* <img id='img' src='https://www.freeiconspng.com/thumbs/globe-png/globe-png-hd-1.png' /> */}
+			<div id="search-box">
+				{/* <input id="input"></input>
+				<button id="search">Search</button> */}
+				{/* <form>
+				<input type="search" placeholder="Search..."/>
+				<button type="submit">Search</button>
+				</form> */}
+			</div>
+			<div class="container">
+				<form>
+				<input type="search" placeholder="Search..."/>
+				<button type="submit">Search</button>
+				</form>
+			</div>
+		</div>
 		</>
 	)
 }
