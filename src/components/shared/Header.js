@@ -11,8 +11,13 @@ const linkStyle = {
 const authenticatedOptions = (
 	<>
 		<Nav.Item className='ms-4'>
+			<Link to='#' style={linkStyle}>
+				Cart
+			</Link>
+		</Nav.Item>
+		<Nav.Item className='ms-4'>
 			<Link to='change-password' style={linkStyle}>
-				Change Password
+				My profile
 			</Link>
 		</Nav.Item>
 		<Nav.Item className='ms-4 me-4'>
@@ -57,7 +62,12 @@ const Header = ({ user }) => (
 		<Navbar.Collapse id='basic-navbar-nav'>
 			<Nav className='ms-auto'>
 				{user && (
-					<span className='navbar-text mr-2'>Welcome, {user.email}</span>
+					<>
+						<div id='welcome-div'>
+						<span id='welcome span'>Hello {user.firstName}</span>
+						</div>
+					</>
+			
 				)}
 				{alwaysOptions}
 				{user ? authenticatedOptions : unauthenticatedOptions}
