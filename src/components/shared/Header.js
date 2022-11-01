@@ -10,12 +10,12 @@ const linkStyle = {
 }
 const authenticatedOptions = (
 	<>
-		<Nav.Item className='ms-3'>
+		<Nav.Item className='ms-4'>
 			<Link to='change-password' style={linkStyle}>
 				Change Password
 			</Link>
 		</Nav.Item>
-		<Nav.Item className='ms-3 me-3'>
+		<Nav.Item className='ms-4 me-4'>
 			<Link to='sign-out' style={linkStyle}>
 				Sign Out
 			</Link>
@@ -25,10 +25,10 @@ const authenticatedOptions = (
 
 const unauthenticatedOptions = (
 	<>
-        <Nav.Item className='ms-3'>
+        <Nav.Item className='ms-4'>
 		    <Link to='sign-up' style={linkStyle}>Sign Up</Link>
         </Nav.Item>
-        <Nav.Item className='ms-3 me-3'>
+        <Nav.Item className='ms-4 me-4'>
 		    <Link to='sign-in' style={linkStyle}>Sign In</Link>
         </Nav.Item>
 	</>
@@ -36,7 +36,7 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
 	<>
-		<Nav.Item className='ms-3'>
+		<Nav.Item className='ms-4'>
 			<Link to='/' style={linkStyle}>
 				Home
 			</Link>
@@ -45,11 +45,11 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-	<Navbar bg='primary' variant='dark' expand='md' >
+	<Navbar id="navbar"  expand='md' >
 		<Navbar.Brand>
-			<Nav  className="position-absolute top-50 start-50 translate-middle">
+			<Nav id="global-button"  className="position-absolute top-50 start-50 translate-middle">
             <Link to='/' style={linkStyle}>
-                Global
+                Global <img id="global-img" src='https://www.freeiconspng.com/thumbs/globe-png/globe-png-hd-1.png' />
             </Link>
 			</Nav>
         </Navbar.Brand>
