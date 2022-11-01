@@ -19,6 +19,8 @@ const SignUp = (props) => {
 	// 	}
 	// }    
     const [email, setEmail] = useState('')
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
     const [password, setPassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
 
@@ -29,7 +31,7 @@ const SignUp = (props) => {
 
 		const { msgAlert, setUser } = props
 
-        const credentials = {email, password, passwordConfirmation}
+        const credentials = {email, firstName, lastName, password, passwordConfirmation}
 
 		signUp(credentials)
 			.then(() => signIn(credentials))
@@ -44,6 +46,8 @@ const SignUp = (props) => {
 			.then(() => navigate('/'))
 			.catch((error) => {
                 setEmail('')
+                setFirstName('')
+                setLastName('')
                 setPassword('')
                 setPasswordConfirmation('')
 				msgAlert({
@@ -69,6 +73,29 @@ const SignUp = (props) => {
                             value={email}
                             placeholder='Enter email'
                             onChange={e => setEmail(e.target.value)}
+                        />
+                    </Form.Group>
+                    <br/>
+                    <Form.Group controlId='firstName'>
+                        <Form.Label>First Name</Form.Label>
+                        <Form.Control
+                            required
+                            name='firstName'
+                            value={firstName}
+                            type='firstName'
+                            placeholder='First Name'
+                            onChange={e => setFirstName(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Form.Group controlId='lastName'>
+                        <Form.Label>Last Name</Form.Label>
+                        <Form.Control
+                            required
+                            name='lastName'
+                            value={lastName}
+                            type='lastName'
+                            placeholder='Last Name'
+                            onChange={e => setLastName(e.target.value)}
                         />
                     </Form.Group>
                     <Form.Group controlId='password'>
