@@ -64,7 +64,7 @@ const Header = ({ user }) => (
 				{user && (
 					<>
 						<div id='welcome-div'>
-						<span id='welcome span'>Hello {user.email}</span>
+						<span id='welcome span'>Hello {user.firstName}</span>
 						</div>
 					</>
 			
