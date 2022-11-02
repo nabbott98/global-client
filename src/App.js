@@ -12,7 +12,7 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
-import ItemIndex from './components/Items/ItemIndex'
+import ItemsIndex from './components/Items/ItemIndex'
 import CartIndex from './components/Cart/CartIndex'
 
 const App = () => {
@@ -78,7 +78,7 @@ const App = () => {
 					/>
 					<Route path='/items' element={
 						<RequireAuth user={user}>
-							<ItemIndex msgAlert={msgAlert} user={user} />
+							<ItemsIndex msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
 					/>
 				</Routes>

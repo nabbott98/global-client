@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react' 
 import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { itemIndex } from '../../api/item'
@@ -9,10 +9,10 @@ const cardContainerLayout = {
     justifyContent: 'center'
 }
 
-const ItemIndex = ({ user, msgAlert }) => {
+const ItemsIndex = ({ user, msgAlert }) => {
 
     const [allItems, setAllItems] = useState([])
-
+	console.log(allItems)
     useEffect(() => {
         itemIndex(user)
         .then(res => {
@@ -21,28 +21,33 @@ const ItemIndex = ({ user, msgAlert }) => {
         .catch((error) => {
             msgAlert({
                 heading: 'Failure',
-                message: 'Index Pets Failure' + error,
+                message: 'Index Items Failure' + error,
                 variant: 'danger'
             })
         })
     }, [])
 
-    const itemCards = allItems.map(item => (
-        <Card key={ item.id } style={{ width: '30%', margin: 5 }}>
-            <Card.Header>{ item.fullTitle }</Card.Header>
+
+    const items = allItems.map(items => (
+        <Card key={ items.id } style={{ width: '30%', margin: 5 }}>
+            <Card.Header>{ items.name }</Card.Header>
             <Card.Body>
                 <Card.Text>
-                    <Link to={ `/items/${item.id}` }>View { item.name }</Link>
+                    <Link to={ `/items/${items.id}` }>View { items.name }</Link>
                 </Card.Text>
             </Card.Body>
         </Card>
     ))
 
+    // if (!allPets) {
+    //     return <LoadingScreen />
+    // }
+
     return (
-        <div className='container-md' style={ cardContainerLayout }>
-            { itemCards }
+        <div className='container-md'>
+            { items }
         </div>
     )
 }
 
-export default ItemIndex
+export default ItemsIndex

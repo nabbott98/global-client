@@ -11,6 +11,11 @@ const linkStyle = {
 const authenticatedOptions = (
 	<>
 		<Nav.Item className='ms-4'>
+			<Link to='/items' style={linkStyle}>
+				Browse Items
+			</Link>
+		</Nav.Item>
+		<Nav.Item className='ms-4'>
 			<Link to='/cart' style={linkStyle}>
 				Cart
 			</Link>
