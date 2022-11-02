@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-
-
+// import auth from '../../api/auth'
 import { changePassword } from '../../api/auth'
 import messages from '../shared/AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+
+import './auth.css'
 
 const ChangePassword = (props) => {
 	// constructor(props) {
@@ -40,7 +41,7 @@ const ChangePassword = (props) => {
 					variant: 'success',
 				})
 			)
-			.then(() => navigate('/'))
+			.then(() => navigate('/my-profile'))
 			.catch((error) => {
 				setOldPassword('')
                 setNewPassword('')
@@ -53,9 +54,9 @@ const ChangePassword = (props) => {
 	}
 
 
-
     return (
-        <div className='row'>
+        
+        <div id="main-page-body" className='row'>
             <div className='col-sm-10 col-md-8 mx-auto mt-5'>
                 <h3>Change Password</h3>
                 <Form onSubmit={onChangePassword}>
@@ -84,7 +85,12 @@ const ChangePassword = (props) => {
                     <Button variant='primary' type='submit'>
                         Submit
                     </Button>
+                    <Button onClick={()=> {navigate('/my-profile')}} className="ms-1"  variant='info' type='submit'>
+                        Back
+                    </Button>
                 </Form>
+                
+               
             </div>
         </div>
     )

@@ -1,0 +1,24 @@
+#main-page-body {
+    background-color: #f6f2e9;
+    height: 1600px;
+}
+
+#main-page-body-my-profile {
+    padding-top: 2rem;
+    background-color: #f6f2e9;
+    height: 1600px;
+}
+#main-text-profile {
+    text-align: center;
+    margin-bottom: 2rem;
+    
+}
+
+#wrap-div {
+    text-align: center;
+}
+.user-menu {
+    
+}
+#profile-buttons {
+}
