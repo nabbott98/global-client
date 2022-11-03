@@ -12,8 +12,11 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+
 import ItemIndex from './components/Items/ItemIndex'
 import MyProfile from './components/auth/MyProfile'
+import CartIndex from './components/Cart/CartIndex'
+
 
 const App = () => {
 
@@ -56,27 +59,32 @@ const App = () => {
 						path='/sign-in'
 						element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
 					/>
-          <Route
-            path='/sign-out'
-            element={
-              <RequireAuth user={user}>
-                <SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
-              </RequireAuth>}
-          />
-          <Route
-            path='/change-password'
-            element={
-              <RequireAuth user={user}>
-                <ChangePassword msgAlert={msgAlert} user={user} />
-              </RequireAuth>}
-          />
-		    <Route path='/items' element={
-				// Auth not working (401, 422 ERRORS), uncomment when auth is functional
-				// <RequireAuth user={user}>
-					<ItemIndex msgAlert={msgAlert} user={user} />
-				// </RequireAuth>
-				}
-			/>
+					<Route
+						path='/cart'
+						element={
+							<RequireAuth user={user}>
+								<CartIndex msgAlert={msgAlert} user={user} />
+							</RequireAuth>}
+					/>
+					<Route
+						path='/sign-out'
+						element={
+						<RequireAuth user={user}>
+							<SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
+						</RequireAuth>}
+					/>
+					<Route
+						path='/change-password'
+						element={
+						<RequireAuth user={user}>
+							<ChangePassword msgAlert={msgAlert} user={user} />
+						</RequireAuth>}
+					/>
+					<Route path='/items' element={
+						<RequireAuth user={user}>
+							<ItemsIndex msgAlert={msgAlert} user={user} />
+						</RequireAuth>}
+					/>
 				</Routes>
 				{msgAlerts.map((msgAlert) => (
 					<AutoDismissAlert
