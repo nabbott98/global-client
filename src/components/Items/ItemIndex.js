@@ -9,10 +9,10 @@ const cardContainerLayout = {
     justifyContent: 'center'
 }
 
-const ItemsIndex = ({ user, msgAlert }) => {
+const ItemIndex = ({ user, msgAlert }) => {
 
     const [allItems, setAllItems] = useState([])
-	console.log(allItems)
+
     useEffect(() => {
         itemIndex(user)
         .then(res => {
@@ -27,27 +27,31 @@ const ItemsIndex = ({ user, msgAlert }) => {
         })
     }, [])
 
+    const allItemsJSX = allItems.map(item => {
+        return (
+            <Link to={`/items/${item._id}`} key={item._id}>
+                <li>Name: {item.name} type: {item.type}</li>
+            </Link>
+        )
+    })
 
-    const items = allItems.map(items => (
-        <Card key={ items.id } style={{ width: '30%', margin: 5 }}>
-            <Card.Header>{ items.name }</Card.Header>
+    const itemCards = allItems.map(item => (
+        <Card key={ item.id } style={{ width: '30%', margin: 5 }}>
+            <Card.Header>{ item.fullTitle }</Card.Header>
             <Card.Body>
                 <Card.Text>
-                    <Link to={ `/items/${items.id}` }>View { items.name }</Link>
+                    <Link to={ `/items/${item._id}` }>View { item.name }</Link>
                 </Card.Text>
             </Card.Body>
         </Card>
     ))
 
-    // if (!allPets) {
-    //     return <LoadingScreen />
-    // }
-
     return (
-        <div className='container-md'>
-            { items }
+        <div className='container-md' style={ cardContainerLayout }>
+            {/* <ul>{allItemsJSX}</ul> */}
+            { itemCards }
         </div>
     )
 }
 
-export default ItemsIndex
+export default ItemIndex
