@@ -1,48 +1,53 @@
-// import React, { useEffect, useState } from 'react' 
-// import { Card } from 'react-bootstrap'
-// import { Link } from 'react-router-dom'
-// import { itemIndex } from '../../api/item'
+import React, { useEffect, useState } from 'react' 
+import { Card } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import { itemIndex } from '../../api/item'
 
-// const cardContainerLayout = {
-//     display: 'flex',
-//     flexFlow: 'row wrap',
-//     justifyContent: 'center'
-// }
+const cardContainerLayout = {
+    display: 'flex',
+    flexFlow: 'row wrap',
+    justifyContent: 'center'
+}
 
-// const ItemIndex = ({ user, msgAlert }) => {
+const ItemsIndex = ({ user, msgAlert }) => {
 
-//     const [allItems, setAllItems] = useState([])
+    const [allItems, setAllItems] = useState([])
+	console.log(allItems)
+    useEffect(() => {
+        itemIndex(user)
+        .then(res => {
+            setAllItems(res.data.items)
+        })
+        .catch((error) => {
+            msgAlert({
+                heading: 'Failure',
+                message: 'Index Items Failure' + error,
+                variant: 'danger'
+            })
+        })
+    }, [])
 
-//     useEffect(() => {
-//         itemIndex(user)
-//         .then(res => {
-//             setAllItems(res.data.items)
-//         })
-//         .catch((error) => {
-//             msgAlert({
-//                 heading: 'Failure',
-//                 message: 'Index Pets Failure' + error,
-//                 variant: 'danger'
-//             })
-//         })
-//     }, [])
 
-//     const itemCards = allItems.map(item => (
-//         <Card key={ item.id } style={{ width: '30%', margin: 5 }}>
-//             <Card.Header>{ item.fullTitle }</Card.Header>
-//             <Card.Body>
-//                 <Card.Text>
-//                     <Link to={ `/items/${item.id}` }>View { item.name }</Link>
-//                 </Card.Text>
-//             </Card.Body>
-//         </Card>
-//     ))
+    const items = allItems.map(items => (
+        <Card key={ items.id } style={{ width: '30%', margin: 5 }}>
+            <Card.Header>{ items.name }</Card.Header>
+            <Card.Body>
+                <Card.Text>
+                    <Link to={ `/items/${items.id}` }>View { items.name }</Link>
+                </Card.Text>
+            </Card.Body>
+        </Card>
+    ))
 
-//     return (
-//         <div className='container-md' style={ cardContainerLayout }>
-//             { itemCards }
-//         </div>
-//     )
-// }
+    // if (!allPets) {
+    //     return <LoadingScreen />
+    // }
 
-// export default ItemIndex
+    return (
+        <div className='container-md'>
+            { items }
+        </div>
+    )
+}
+
+export default ItemsIndex

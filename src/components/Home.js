@@ -17,7 +17,7 @@ const Home = (props) => {
 				<button type="submit">Search</button>
 				</form> */}
 			</div>
-			<div class="container">
+			<div className="container">
 				<form id="form-search-button">
 				<input id="input-search" type="search" placeholder="Search..."/>
 				<button id="input-button" type="submit">Search</button>
