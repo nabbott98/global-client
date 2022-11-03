@@ -7,7 +7,10 @@ import messages from '../shared/AutoDismissAlert/messages'
 import ChangePassword from './ChangePassword'
 import { userUpdate } from '../../api/auth'
 
-import UpdateName from './UpdateName'
+import UpdateFirstName from './UpdateFirstName'
+import UpdateLastName from './UpdateLastName'
+import UpdateEmail from './UpdateEmail'
+
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
@@ -15,20 +18,26 @@ import { Card } from 'react-bootstrap'
 
 import './auth.css'
 
-const MyProfile = ({user,props, msgAlert,data}) => {
+const MyProfile = ({user,props, msgAlert}) => {
+    const navigate = useNavigate()
+    // first name update
     const [firstName, setFirstName] = useState('')
+    //second name update
+    const [lastName, setLastName] = useState('')
+    //email update
+    const [email, setEmail] = useState('')
+    //toggle show, for now, later may be modals
     const [isUpdateShown, setIsUpdateShown] = useState(false)
-
-
     const toggleShowUpdate = () => {
         setIsUpdateShown(prevUpdateShown => !prevUpdateShown)
     }
 
-
-    const handleChange = (event) => {
+    // handle FIRST name change function------------------------------------------------
+    const handleFirstChange = (event) => {
         setFirstName(event.target.value)
     }
-    const handleUpdate = () => {
+    // handle first name update function
+    const handleFirstUpdate = () => {
         let updatedUser= user
         updatedUser.firstName = firstName
         userUpdate(updatedUser)
@@ -47,7 +56,59 @@ const MyProfile = ({user,props, msgAlert,data}) => {
             })
         })
     }
-    const navigate = useNavigate()
+    //---------------------------------------------------------------------------------------
+
+    // handle LAST name change function------------------------------------------------------
+    const handleLastChange = (event) => {
+        setLastName(event.target.value)
+    }
+    // handle last name update function
+    const handleLastUpdate = () => {
+        let updatedUser= user
+        updatedUser.lastName = lastName
+        userUpdate(updatedUser)
+        .then(() => {
+            msgAlert({
+                heading: 'Success',
+                message: 'update',
+                variant: 'success'
+            })
+        })
+        .catch((error) => {
+            msgAlert({
+                heading: 'Failure',
+                message: 'update Failure' + error,
+                variant: 'danger'
+            })
+        })
+    }
+    //---------------------------------------------------------------------------------------
+
+    // handle EMAIL name change function------------------------------------------------------
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value)
+    }
+    // handle last name update function
+    const handleEmailUpdate = () => {
+        let updatedUser= user
+        updatedUser.email = email
+        userUpdate(updatedUser)
+        .then(() => {
+            msgAlert({
+                heading: 'Success',
+                message: 'update',
+                variant: 'success'
+            })
+        })
+        .catch((error) => {
+            msgAlert({
+                heading: 'Failure',
+                message: 'update Failure' + error,
+                variant: 'danger'
+            })
+        })
+    }
+    //---------------------------------------------------------------------------------------
 
 
     return (
@@ -56,13 +117,24 @@ const MyProfile = ({user,props, msgAlert,data}) => {
             <div id="wrap-div">
                 <h3 class="user-menu">First Name: {user.firstName}</h3>
                 <h3 class="user-menu">Last Name: {user.lastName}</h3>
-                {/* <Button className='col-md-1 mx-auto' variant='primary' type='submit'>edit</Button> */}
                 <h3 class="user-menu">Email: {user.email}</h3>
                 <div className="btn-group-vertical"  id="profile-buttons">
-                    <Button onClick={toggleShowUpdate} className='btn btn-info btn-sm mb-2' type='submit'>Edit my info</Button>
-                    {isUpdateShown && (<UpdateName user={user.firstName}
-                    handleChange ={handleChange}
-                    handleUpdate ={handleUpdate}/>)}
+
+                    <Button onClick={toggleShowUpdate} className='btn btn-info btn-sm mb-2' type='submit'>Change First Name</Button>
+                    {isUpdateShown && (<UpdateFirstName user={user.firstName}
+                    handleChange ={handleFirstChange}
+                    handleUpdate ={handleFirstUpdate}/>)}
+
+                    <Button onClick={toggleShowUpdate} className='btn btn-info btn-sm mb-2' type='submit'>Change Last Name</Button>
+                    {isUpdateShown && (<UpdateLastName user={user.lastName}
+                    handleChange ={handleLastChange}
+                    handleUpdate ={handleLastUpdate}/>)}
+
+                    <Button onClick={toggleShowUpdate} className='btn btn-info btn-sm mb-2' type='submit'>Change Email</Button>
+                    {isUpdateShown && (<UpdateEmail user={user.email}
+                    handleChange ={handleEmailChange}
+                    handleUpdate ={handleEmailUpdate}/>)}
+
                     <Button onClick={()=> {navigate('/change-password')}} className='btn btn-info btn-sm' variant='info' class="user-menu">
                             Change Password
                     </Button>

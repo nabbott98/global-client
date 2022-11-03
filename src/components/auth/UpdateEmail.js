@@ -1,13 +1,13 @@
 import React from 'react'
 import { signUp } from '../../api/auth'
 
-const UpdateName =({user,handleChange,handleUpdate}) => {
+const UpdateEmail =({user,handleChange,handleUpdate}) => {
     return(
         <>
             <input
                 type='text'
-                value={user.firstName}
-                name='brand'
+                value={user.email}
+                name='firstName'
                 onChange={handleChange}
             />
             <button onClick={handleUpdate}>Update</button>
@@ -15,4 +15,4 @@ const UpdateName =({user,handleChange,handleUpdate}) => {
     )
 }
 
-export default UpdateName
+export default UpdateEmail
