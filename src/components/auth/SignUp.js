@@ -8,6 +8,8 @@ import messages from '../shared/AutoDismissAlert/messages'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
+import './auth.css'
+
 const SignUp = (props) => {
 	// constructor(props) {
 	// 	super(props)
@@ -60,7 +62,7 @@ const SignUp = (props) => {
 
 
     return (
-        <div className='row'>
+        <div id="main-page-body" className='row'>
             <div className='col-sm-10 col-md-8 mx-auto mt-5'>
                 <h3>Sign Up</h3>
                 <Form onSubmit={onSignUp}>
