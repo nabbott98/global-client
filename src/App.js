@@ -16,10 +16,13 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import ItemsIndex from './components/Items/ItemIndex'
 import ItemCreate from './components/Items/ItemCreate';
+import ItemIndex from './components/Items/ItemIndex'
+import MyProfile from './components/auth/MyProfile'
 import CartIndex from './components/Cart/CartIndex'
 import CheckoutForm from './components/Cart/Stripe/CheckoutForm'
 
 const stripePromise = loadStripe('pk_test_51LzixHFctdQVNwrZfvrkkfBX0bX2b6jWZ6eJnzYIPmUNh4vV5OueA9Ong8lbg5Y8lvaaHYRcBI6e0KZeiuKTixIk00nPUtcwLC');
+
 
 const App = () => {
 
@@ -58,6 +61,7 @@ const App = () => {
 				<Header user={user} />
 				<Routes>
 					<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
+					<Route path='/my-profile' element={<MyProfile msgAlert={msgAlert} user={user} />} />
 					<Route
 						path='/sign-up'
 						element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
