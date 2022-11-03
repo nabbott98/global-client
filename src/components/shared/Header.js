@@ -11,7 +11,7 @@ const linkStyle = {
 const authenticatedOptions = (
 	<>
 		<Nav.Item className='ms-4'>
-			<Link to='/items' style={linkStyle}>
+			<Link to='/create' style={linkStyle}>
 				Browse Items
 			</Link>
 		</Nav.Item>
