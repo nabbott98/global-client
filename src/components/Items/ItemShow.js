@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { itemShow, itemUpdate, itemDelete } from "../api/item";
+import React, { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { itemShow, itemUpdate, itemDelete } from "../../api/item"
 // import ItemUpdate from "./ItemUpdate";
+
 
 const ItemShow = ({ user, msgAlert}) => {
 
@@ -84,14 +85,14 @@ const ItemShow = ({ user, msgAlert}) => {
             <p>category: {item.category}</p>
             <p>Price: ${item.price}</p>
             <p>{item.description}</p>
-            <button onClick={toggleShowUpdate}>Update</button>
+            {/* <button onClick={toggleShowUpdate}>Update</button>
             {isUpdateShown && (
-                <ItemUpdate item={item}
-                    handleChange={handleChange}
-                    handleUpdateItem={handleUpdateItem}
-                />
+                // <ItemUpdate item={item}
+                //     handleChange={handleChange}
+                //     handleUpdateItem={handleUpdateItem}
+                // />
             )}
-            <button onClick={handleDeleteItem}>Delete</button>
+            <button onClick={handleDeleteItem}>Delete</button> */}
         </>
     )
 }

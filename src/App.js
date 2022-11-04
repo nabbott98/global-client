@@ -14,9 +14,9 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
-import ItemsIndex from './components/Items/ItemIndex'
-import ItemCreate from './components/Items/ItemCreate';
 import ItemIndex from './components/Items/ItemIndex'
+import ItemCreate from './components/Items/ItemCreate';
+import ItemShow from './components/Items/ItemShow'
 import MyProfile from './components/auth/MyProfile'
 import CartIndex from './components/Cart/CartIndex'
 import CheckoutForm from './components/Cart/Stripe/CheckoutForm'
@@ -96,7 +96,12 @@ const App = () => {
 					/>
 					<Route path='/items' element={
 						<RequireAuth user={user}>
-							<ItemsIndex msgAlert={msgAlert} user={user} />
+							<ItemIndex msgAlert={msgAlert} user={user} />
+						</RequireAuth>}
+					/>
+					<Route path='/items/:id' element={
+						<RequireAuth user={user}>
+							<ItemShow msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
 					/>
 					<Route
