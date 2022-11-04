@@ -5,9 +5,11 @@ const Home = (props) => {
 	console.log('props in home', props)
 
 	return (
-		<>
 		<div id='main-page-body'>
-			<h2 id='global-text'>Successful <span id='E-letter'>E</span> Business, Global Web!</h2>
+			<h2 id='global-text'>Successful 
+				<span id='E-letter'>E</span> Business, Global Web!
+			</h2>
+			<div class="container"> 
 			{/* <img id='img' src='https://www.freeiconspng.com/thumbs/globe-png/globe-png-hd-1.png' /> */}
 			<div id="search-box">
 				{/* <input id="input"></input>
@@ -24,7 +26,7 @@ const Home = (props) => {
 				</form>
 			</div>
 		</div>
-		</>
+		</div>
 	)
 }
 

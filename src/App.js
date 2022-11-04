@@ -14,7 +14,7 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import ItemsIndex from './components/Items/ItemIndex'
 import ItemCreate from './components/Items/ItemCreate';
-import PaymentForm from './PaymentForm'
+import CheckoutForm from './PaymentForm'
 import {Elements} from '@stripe/react-stripe-js'
 import {loadStripe} from '@stripe/stripe-js'
 // import MyProfile from './components/auth/MyProfile'
@@ -25,8 +25,12 @@ import clientSecret from './PaymentForm'
 // async function stripePromise() {
 // 	return await loadStripe('pk_test_51LzixHFctdQVNwrZfvrkkfBX0bX2b6jWZ6eJnzYIPmUNh4vV5OueA9Ong8lbg5Y8lvaaHYRcBI6e0KZeiuKTixIk00nPUtcwLC')
 // }
+import ItemIndex from './components/Items/ItemIndex'
+import MyProfile from './components/auth/MyProfile'
+import CartIndex from './components/Cart/CartIndex'
 
 const stripePromise = loadStripe('pk_test_51LzixHFctdQVNwrZfvrkkfBX0bX2b6jWZ6eJnzYIPmUNh4vV5OueA9Ong8lbg5Y8lvaaHYRcBI6e0KZeiuKTixIk00nPUtcwLC');
+
 
 const App = () => {
 
@@ -81,7 +85,7 @@ const App = () => {
 						element={
 							<RequireAuth user={user}>
 								<Elements stripe={stripePromise} secret={clientSecret}>
-									<PaymentForm/>
+									<CheckoutForm/>
 								</Elements>
 							</RequireAuth>}
 					/>
