@@ -4,13 +4,13 @@ import { signUp } from '../../api/auth'
 const UpdateFirstName =({user,handleChange,handleUpdate}) => {
     return(
         <>
-            <input
+         <input
                 type='text'
                 value={user.firstName}
                 name='firstName'
                 onChange={handleChange}
             />
-            <button onClick={handleUpdate}>Update</button>
+            {/* <button onClick={handleUpdate}>Update</button> */}
         </>
     )
 }

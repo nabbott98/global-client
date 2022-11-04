@@ -1,16 +1,16 @@
 import React from 'react'
 import { signUp } from '../../api/auth'
 
-const UpdateEmail =({user,handleChange,handleUpdate}) => {
+const UpdateEmail =({user,handleEmailChange,handleEmailUpdate}) => {
     return(
         <>
             <input
                 type='text'
                 value={user.email}
                 name='firstName'
-                onChange={handleChange}
+                onChange={handleEmailChange}
             />
-            <button onClick={handleUpdate}>Update</button>
+            {/* <button onClick={handleEmailUpdate}>Update</button> */}
         </>
     )
 }
