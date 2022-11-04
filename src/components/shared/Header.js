@@ -4,12 +4,27 @@ import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
 import './header.css'
 
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
+import SplitButton from 'react-bootstrap/SplitButton';
 const linkStyle = {
     color: 'white',
     textDecoration: 'none'
 }
 const authenticatedOptions = (
 	<>
+		<Nav.Item className='ms-4'>
+			<Link to='/items' style={linkStyle}>
+				Browse Items
+			</Link>
+		</Nav.Item>
+		<Nav.Item className='ms-4'>
+			<Link to='/create' style={linkStyle}>
+				Create Item
+			</Link>
+		</Nav.Item>
+
 		<Nav.Item className='ms-4'>
 			<Link to='#' style={linkStyle}>
 				Cart
@@ -30,6 +45,23 @@ const authenticatedOptions = (
 
 const unauthenticatedOptions = (
 	<>
+		{/* <Dropdown>
+        <Dropdown.Toggle id="dropdown-button" variant="primary">
+          Dropdown Button
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu variant="primary">
+          <Dropdown.Item href="#/action-1" active>
+            Action
+          </Dropdown.Item>
+          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown> */}
+
+
         <Nav.Item className='ms-4'>
 		    <Link to='sign-up' style={linkStyle}>Sign Up</Link>
         </Nav.Item>

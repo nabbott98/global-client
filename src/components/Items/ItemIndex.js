@@ -21,18 +21,21 @@
 //         .catch((error) => {
 //             msgAlert({
 //                 heading: 'Failure',
-//                 message: 'Index Pets Failure' + error,
+//                 message: 'Index Items Failure' + error,
 //                 variant: 'danger'
 //             })
 //         })
 //     }, [])
 
+
 //     const itemCards = allItems.map(item => (
 //         <Card key={ item.id } style={{ width: '30%', margin: 5 }}>
-//             <Card.Header>{ item.fullTitle }</Card.Header>
+//             <Card.Header>
+//                 <Link to={ `/items/${item._id}` }>{ item.name }</Link>
+//             </Card.Header>
 //             <Card.Body>
 //                 <Card.Text>
-//                     <Link to={ `/items/${item.id}` }>View { item.name }</Link>
+//                     ${item.price}
 //                 </Card.Text>
 //             </Card.Body>
 //         </Card>
@@ -40,6 +43,7 @@
 
 //     return (
 //         <div className='container-md' style={ cardContainerLayout }>
+//             {/* <ul>{allItemsJSX}</ul> */}
 //             { itemCards }
 //         </div>
 //     )

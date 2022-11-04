@@ -1,12 +1,12 @@
 import { Form, Button, Container, Modal } from 'react-bootstrap'
+import React from 'react'
 
 const UserModalForm = (props) => {
     // here are the props we're going to bring into our form
-    const { user,handleChange,handleLastChange,handleEmailChange,handleUpdate,closeModal,
-    show,firstName,lastName,email} = props
+    const { userName,handleChange,handleUpdate,closeModal,
+    show,navigate} = props
 
     return (
-        
         <Container className="justify-content-center">
             <Modal show={show} onHide={closeModal}>
             <Modal.Header closeButton/>
@@ -15,27 +15,27 @@ const UserModalForm = (props) => {
                 <Form onSubmit={ handleUpdate }>
                     <Form.Label>First Name:</Form.Label>
                     <Form.Control 
-                        placeholder="what's your name?"
+                        placeholder="Type your first name?"
                         name="firstName"
                          id="firstName"
-                        value= {user.firstName}
+                        value= {userName.firstName}
                         onChange={ handleChange }
                     />
                     <Form.Label>Last Name:</Form.Label>
                     <Form.Control 
-                        placeholder="what's your last name?"
+                        placeholder="type your last name?"
                         name="lastName"
-                        id="lastName"
-                        value= { user.lastName }
-                        onChange={ handleLastChange }
+                        
+                        value= { userName.lastName }
+                        onChange={ handleChange }
                     />
                     <Form.Label>Email:</Form.Label>
                     <Form.Control 
-                        placeholder="What's your email?"
+                        placeholder="type your email?"
                         name="email"
-                        id="email"
-                        value= { user.email }
-                        onChange={ handleEmailChange }
+                        
+                        value= { userName.email }
+                        onChange={ handleChange }
                     />
                     <Button type="submit">Submit</Button>
                 </Form>
@@ -47,3 +47,4 @@ const UserModalForm = (props) => {
 }
 
 export default UserModalForm
+//onClick={()=>{navigate('/my-profile')}}
