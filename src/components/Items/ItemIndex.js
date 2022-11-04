@@ -27,20 +27,15 @@ const ItemIndex = ({ user, msgAlert }) => {
         })
     }, [])
 
-    const allItemsJSX = allItems.map(item => {
-        return (
-            <Link to={`/items/${item._id}`} key={item._id}>
-                <li>Name: {item.name} type: {item.type}</li>
-            </Link>
-        )
-    })
 
     const itemCards = allItems.map(item => (
         <Card key={ item.id } style={{ width: '30%', margin: 5 }}>
-            <Card.Header>{ item.fullTitle }</Card.Header>
+            <Card.Header>
+                <Link to={ `/items/${item._id}` }>{ item.name }</Link>
+            </Card.Header>
             <Card.Body>
                 <Card.Text>
-                    <Link to={ `/items/${item._id}` }>View { item.name }</Link>
+                    ${item.price}
                 </Card.Text>
             </Card.Body>
         </Card>
