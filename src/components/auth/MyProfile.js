@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { signUp } from '../../api/auth'
-// import auth from '../../api/auth'
-import { changePassword } from '../../api/auth'
 import messages from '../shared/AutoDismissAlert/messages'
-import ChangePassword from './ChangePassword'
 import { userUpdate } from '../../api/auth'
 
-import UpdateName from './UpdateName'
+import UserModalForm from './UserModalForm'
+import { Modal } from 'react-bootstrap'
+
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
@@ -15,54 +13,92 @@ import { Card } from 'react-bootstrap'
 
 import './auth.css'
 
-const MyProfile = ({user,props, msgAlert,data}) => {
-    const [firstName, setFirstName] = useState('')
+const MyProfile = ({user,msgAlert, setUser}) => {
+    const [editModalShow, setEditModalShow] = useState(false)
+    const [updated, setUpdated] = useState(false)
+
+    const navigate = useNavigate()
+    // first name update
+    const [userName, setUserName] = useState(user)
+    
+    //toggle show, for now, later may be modals
     const [isUpdateShown, setIsUpdateShown] = useState(false)
-
-
     const toggleShowUpdate = () => {
         setIsUpdateShown(prevUpdateShown => !prevUpdateShown)
     }
+    const triggerRefresh= () => {setUpdated(prev => !prev)}
 
+    const handleClose=() => {setEditModalShow(false)}
 
     const handleChange = (event) => {
-        setFirstName(event.target.value)
-    }
-    const handleUpdate = () => {
-        let updatedUser= user
-        updatedUser.firstName = firstName
-        userUpdate(updatedUser)
-        .then(() => {
-            msgAlert({
-                heading: 'Success',
-                message: 'update',
-                variant: 'success'
-            })
-        })
-        .catch((error) => {
-            msgAlert({
-                heading: 'Failure',
-                message: 'update Failure' + error,
-                variant: 'danger'
-            })
+        setUserName(prevUser => {
+            const updatedName = event.target.name
+            let updatedValue = event.target.value
+
+            const updatedUser = { [updatedName]: updatedValue }
+
+            return { ...prevUser, ...updatedUser }
         })
     }
-    const navigate = useNavigate()
 
-
+    const handleUpdate = (event) => {
+        event.preventDefault()
+        
+        userUpdate(userName)
+            .then((res) => {
+                console.log('this is user in update user', res.data.user)
+                setUser(res.data.user)
+            })
+            .then(() => handleClose())
+            .then(() => {
+                msgAlert({
+                    heading: 'Success',
+                    message: messages.updatePetSuccess,
+                    variant: 'success'
+                })
+            })
+            .then(() => triggerRefresh())
+            .catch((error) => {
+                msgAlert({
+                    heading: 'Failure',
+                    message: messages.updatePetFailure + error,
+                    variant: 'danger'
+                })
+            })
+        }
+    //---------------------------------------------------------------------------------------
+if(!user){
+    return(
+        <div>Please Sign In</div>
+    )
+}
     return (
         <div id='main-page-body-my-profile'>
             <h3 id="main-text-profile">My profile info</h3>
             <div id="wrap-div">
                 <h3 class="user-menu">First Name: {user.firstName}</h3>
                 <h3 class="user-menu">Last Name: {user.lastName}</h3>
-                {/* <Button className='col-md-1 mx-auto' variant='primary' type='submit'>edit</Button> */}
                 <h3 class="user-menu">Email: {user.email}</h3>
                 <div className="btn-group-vertical"  id="profile-buttons">
-                    <Button onClick={toggleShowUpdate} className='btn btn-info btn-sm mb-2' type='submit'>Edit my info</Button>
-                    {isUpdateShown && (<UpdateName user={user.firstName}
-                    handleChange ={handleChange}
-                    handleUpdate ={handleUpdate}/>)}
+
+                    {editModalShow &&<UserModalForm closeModal={setEditModalShow}
+                    show = {editModalShow}
+                    userName={userName}
+        
+                    handleUpdate={handleUpdate}
+                    handleChange={handleChange}
+        
+                    navigate ={navigate}
+                    />}
+
+                    <Button onClick={()=> 
+                    {
+                        setEditModalShow(true)
+                        // console.log(firstName,'first name var')
+                        console.log(user.firstName,'first name user import')
+                    }}>Update info</Button>
+
+
                     <Button onClick={()=> {navigate('/change-password')}} className='btn btn-info btn-sm' variant='info' class="user-menu">
                             Change Password
                     </Button>

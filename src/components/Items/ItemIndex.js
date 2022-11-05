@@ -9,6 +9,47 @@ import { itemIndex } from '../../api/item'
 //     justifyContent: 'center'
 // }
 
+
+// const ItemIndex = ({ user, msgAlert }) => {
+
+//     const [allItems, setAllItems] = useState([])
+
+//     useEffect(() => {
+//         itemIndex(user)
+//         .then(res => {
+//             setAllItems(res.data.items)
+//         })
+//         .catch((error) => {
+//             msgAlert({
+//                 heading: 'Failure',
+//                 message: 'Index Items Failure' + error,
+//                 variant: 'danger'
+//             })
+//         })
+//     }, [])
+
+
+//     const itemCards = allItems.map(item => (
+//         <Card key={ item.id } style={{ width: '30%', margin: 5 }}>
+//             <Card.Header>
+//                 <Link to={ `/items/${item._id}` }>{ item.name }</Link>
+//             </Card.Header>
+//             <Card.Body>
+//                 <Card.Text>
+//                     ${item.price}
+//                 </Card.Text>
+//             </Card.Body>
+//         </Card>
+//     ))
+
+//     return (
+//         <div className='container-md' style={ cardContainerLayout }>
+//             {/* <ul>{allItemsJSX}</ul> */}
+//             { itemCards }
+//         </div>
+//     )
+// }
+
 const ItemsIndex = ({ user, msgAlert }) => {
 
     const [allItems, setAllItems] = useState([])
@@ -49,5 +90,6 @@ const ItemsIndex = ({ user, msgAlert }) => {
         </div>
     )
 }
+
 
 export default ItemsIndex

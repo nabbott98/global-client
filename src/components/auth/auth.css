@@ -10,12 +10,22 @@
 }
 #main-text-profile {
     text-align: center;
-    margin-bottom: 2rem;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    background-color: #002440;
+    color: white;
+    margin: auto;
+    width: 700px;
     
 }
 
 #wrap-div {
     text-align: center;
+    background-color: white;
+    color: #002440;;
+    margin: auto;
+    width: 700px;
+    height: 500px;
 }
 .user-menu {
     
