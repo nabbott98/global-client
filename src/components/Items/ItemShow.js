@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import { itemShow, itemUpdate, itemDelete } from "../../api/item"
-// import ItemUpdate from "./ItemUpdate";
-
+import { cartAdd } from "../../api/cart"
+import ItemUpdate from "./ItemUpdate"
 
 const ItemShow = ({ user, msgAlert}) => {
 
     const [item, setItem] = useState({})
+    const [quantity, setQuantity] = useState({})
 
     const { id } = useParams()
-    console.log('id: ', id)
     const [isUpdateShown, setIsUpdateShown] = useState(false)
     // const [isDeleteShown, setIsDeleteShown] = useState(false)
     const navigate = useNavigate()
@@ -19,7 +19,6 @@ const ItemShow = ({ user, msgAlert}) => {
         itemShow(user, id)
         .then(res => {
             setItem(res.data.item)
-
         })
         .catch((error) => {
             msgAlert({
@@ -30,6 +29,26 @@ const ItemShow = ({ user, msgAlert}) => {
         })
     }, [])
 
+    const handleAddToCart = () => {
+        cartAdd(quantity, user, item._id)
+        .then(() => {
+            msgAlert({
+                heading: 'Success',
+                message: 'Added item to Cart',
+                variant: 'success'
+            })
+        })
+        .then(() => {
+            navigate('/items')
+        })
+        .catch((error) => {
+            msgAlert({
+                heading: 'Failure',
+                message: 'Add to Cart Failure' + error,
+                variant: 'danger'
+            })
+        })
+    }
 
     const toggleShowUpdate = () => {
         setIsUpdateShown(prevUpdateShown => !prevUpdateShown)
@@ -70,6 +89,9 @@ const ItemShow = ({ user, msgAlert}) => {
             })
             navigate('/items')
         })
+        // .then(() => {
+        //     navigate('/items')
+        // })
         .catch((error) => {
             msgAlert({
                 heading: 'Failure',
@@ -81,18 +103,29 @@ const ItemShow = ({ user, msgAlert}) => {
 
     return(
         <>
-            <h3>Name: {item.name}</h3>
-            <p>category: {item.category}</p>
-            <p>Price: ${item.price}</p>
+            <h3>{item.name}     ${item.price}</h3>
+            <img src={item.image} alt={item.name}/>
+            <p>{item.category}</p>
             <p>{item.description}</p>
-            {/* <button onClick={toggleShowUpdate}>Update</button>
+
+
+            <input
+                type='number'
+                value={quantity}
+                name='name'
+                placeholder='quantity'
+                onChange={handleChange}
+            />
+
+            <button onClick={handleAddToCart}>Add To Cart</button>
+            <button onClick={toggleShowUpdate}>Update</button>
             {isUpdateShown && (
-                // <ItemUpdate item={item}
-                //     handleChange={handleChange}
-                //     handleUpdateItem={handleUpdateItem}
-                // />
+                <ItemUpdate item={item}
+                    handleChange={handleChange}
+                    handleUpdateItem={handleUpdateItem}
+                />
             )}
-            <button onClick={handleDeleteItem}>Delete</button> */}
+            <button onClick={handleDeleteItem}>Delete</button>
         </>
     )
 }
