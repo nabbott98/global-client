@@ -11,7 +11,7 @@ const linkStyle = {
 const authenticatedOptions = (
 	<>
 		<Nav.Item className='ms-4'>
-			<Link to='/create' style={linkStyle}>
+			<Link to='/items' style={linkStyle}>
 				Browse Items
 			</Link>
 		</Nav.Item>
@@ -59,7 +59,7 @@ const Header = ({ user }) => (
 		<Navbar.Brand>
 			<Nav id="global-button"  className="position-absolute top-50 start-50 translate-middle">
             <Link to='/' style={linkStyle}>
-                Global <img id="global-img" src='https://www.freeiconspng.com/thumbs/globe-png/globe-png-hd-1.png' />
+                Global <img id="global-img" src='https://www.freeiconspng.com/thumbs/globe-png/globe-png-hd-1.png' alt='global'/>
             </Link>
 			</Nav>
         </Navbar.Brand>
