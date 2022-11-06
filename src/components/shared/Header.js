@@ -45,21 +45,6 @@ const authenticatedOptions = (
 
 const unauthenticatedOptions = (
 	<>
-		{/* <Dropdown>
-        <Dropdown.Toggle id="dropdown-button" variant="primary">
-          Dropdown Button
-        </Dropdown.Toggle>
-
-        <Dropdown.Menu variant="primary">
-          <Dropdown.Item href="#/action-1" active>
-            Action
-          </Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-          <Dropdown.Divider />
-          <Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown> */}
 
 
         <Nav.Item className='ms-4'>
@@ -73,6 +58,23 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
 	<>
+	<div id='drop-dwn-btn'>
+			<Dropdown>
+			<Dropdown.Toggle id="dropdown-button" variant="primary">
+			Dropdown Button
+			</Dropdown.Toggle>
+
+			<Dropdown.Menu variant="primary">
+			<Dropdown.Item href="/sign-in" active>
+				sign in
+			</Dropdown.Item>
+			<Dropdown.Item href="/items">Browse Items</Dropdown.Item>
+			<Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+			<Dropdown.Divider />
+			<Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
+			</Dropdown.Menu>
+			</Dropdown>
+	  </div>
 		<Nav.Item className='ms-4'>
 			<Link to='/' style={linkStyle}>
 				Home
