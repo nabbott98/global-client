@@ -3,11 +3,13 @@ import { useNavigate } from 'react-router-dom'
 import messages from '../shared/AutoDismissAlert/messages'
 import { userUpdate } from '../../api/auth'
 
+// comment out or delete any unused imports!
 import UserModalForm from './UserModalForm'
 import { Modal } from 'react-bootstrap'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+// you can consolodate your imports like you do on line one. so "import { Link, useNavigate} from 'react-router-dom'" and the same with bootstrap or any other import to clean up your code. 
 import { Link } from 'react-router-dom'
 import { Card } from 'react-bootstrap'
 
