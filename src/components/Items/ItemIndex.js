@@ -3,11 +3,11 @@ import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { itemIndex } from '../../api/item'
 
-// const cardContainerLayout = {
-//     display: 'flex',
-//     flexFlow: 'row wrap',
-//     justifyContent: 'center'
-// }
+const cardContainerLayout = {
+    display: 'flex',
+    flexFlow: 'row wrap',
+    justifyContent: 'center'
+}
 
 
 // const ItemIndex = ({ user, msgAlert }) => {

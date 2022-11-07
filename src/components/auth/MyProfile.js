@@ -76,9 +76,9 @@ if(!user){
         <div id='main-page-body-my-profile'>
             <h3 id="main-text-profile">My profile info</h3>
             <div id="wrap-div">
-                <h3 class="user-menu">First Name: {user.firstName}</h3>
-                <h3 class="user-menu">Last Name: {user.lastName}</h3>
-                <h3 class="user-menu">Email: {user.email}</h3>
+                <h3 class="user-menu"><span class="span">First Name:</span> {user.firstName}</h3>
+                <h3 class="user-menu"><span class="span">Last Name:</span> {user.lastName}</h3>
+                <h3 class="user-menu"><span class="span">Email:</span> {user.email}</h3>
                 <div className="btn-group-vertical"  id="profile-buttons">
 
                     {editModalShow &&<UserModalForm closeModal={setEditModalShow}
@@ -90,15 +90,11 @@ if(!user){
         
                     navigate ={navigate}
                     />}
-
+                    
                     <Button onClick={()=> 
                     {
                         setEditModalShow(true)
-                        // console.log(firstName,'first name var')
-                        console.log(user.firstName,'first name user import')
                     }}>Update info</Button>
-
-
                     <Button onClick={()=> {navigate('/change-password')}} className='btn btn-info btn-sm' variant='info' class="user-menu">
                             Change Password
                     </Button>
