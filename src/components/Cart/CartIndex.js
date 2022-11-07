@@ -1,6 +1,6 @@
-import ProductDisplay from './Stripe/CheckoutForm'
-import Message from './Stripe/CheckoutForm'
-import Checkout from './Stripe/CheckoutForm'
+// import ProductDisplay from './Stripe/CheckoutForm'
+// import Message from './Stripe/CheckoutForm'
+// import Checkout from './Stripe/CheckoutForm'
 
 import React, { useEffect, useState } from 'react' 
 import { Card } from 'react-bootstrap'

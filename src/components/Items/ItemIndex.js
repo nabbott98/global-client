@@ -83,7 +83,8 @@ const ItemIndex = ({ user, msgAlert }) => {
     ))
 
     return (
-        <div className='container-md' style={ cardContainerLayout }>
+        //style={ cardContainerLayout }
+        <div className='container-md' >
             {/* <ul>{allItemsJSX}</ul> */}
             { itemCards }
         </div>
