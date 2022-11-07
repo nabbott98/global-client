@@ -12,9 +12,27 @@ const linkStyle = {
     color: 'white',
     textDecoration: 'none'
 }
+const drowMenulinkStyle = {
+    color: 'black',
+    textDecoration: 'none'
+}
 const authenticatedOptions = (
 	<>
-		<Nav.Item className='ms-4'>
+	<div id='drop-dwn-btn'>
+			<Dropdown>
+			<Dropdown.Toggle id="dropdown-button" variant="primary">
+			My Store
+			</Dropdown.Toggle>
+
+			<Dropdown.Menu variant="primary">
+			<Dropdown.Item><Link to="/create" style={drowMenulinkStyle}>Post item</Link></Dropdown.Item>
+			<Dropdown.Item><Link to="/items" style={drowMenulinkStyle}>Browse items</Link></Dropdown.Item>
+			
+			</Dropdown.Menu>
+			</Dropdown>
+	  </div>
+	  {/* MOVED THESE BTNS TO DROPDOWN MENU BTN */}
+		{/* <Nav.Item className='ms-4'>
 			<Link to='/items' style={linkStyle}>
 				Browse Items
 			</Link>
@@ -23,11 +41,13 @@ const authenticatedOptions = (
 			<Link to='/create' style={linkStyle}>
 				Create Item
 			</Link>
-		</Nav.Item>
+		</Nav.Item> */}
 
 
 		<Nav.Item className='ms-4'>
-			<Link to='#' style={linkStyle}></Link>
+
+			<Link to='#' style={linkStyle}>
+			</Link>
 
 			<Link to='/cart' style={linkStyle}>
 
@@ -49,21 +69,6 @@ const authenticatedOptions = (
 
 const unauthenticatedOptions = (
 	<>
-		{/* <Dropdown>
-        <Dropdown.Toggle id="dropdown-button" variant="primary">
-          Dropdown Button
-        </Dropdown.Toggle>
-
-        <Dropdown.Menu variant="primary">
-          <Dropdown.Item href="#/action-1" active>
-            Action
-          </Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-          <Dropdown.Divider />
-          <Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown> */}
 
 
         <Nav.Item className='ms-4'>

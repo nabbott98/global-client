@@ -9,7 +9,7 @@ const UserModalForm = (props) => {
     return (
         <Container className="justify-content-center">
             <Modal show={show} onHide={closeModal}>
-            <Modal.Header closeButton/>
+            <Modal.Header id='modal-header' closeButton/>
             <h3>change info</h3>
             <Modal.Body>
                 <Form onSubmit={ handleUpdate }>

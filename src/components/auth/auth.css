@@ -10,6 +10,7 @@
 }
 #main-text-profile {
     text-align: center;
+    font-size: 40px;
     padding-top: 10px;
     padding-bottom: 20px;
     background-color: #002440;
@@ -28,7 +29,22 @@
     height: 500px;
 }
 .user-menu {
-    
+    font-size: 30px;
+    font-weight: lighter;
+    text-align: initial;
+    padding: 20px;
+    border-bottom: 1px solid black;
+}
+.span {
+    font-weight: bolder;
 }
 #profile-buttons {
+    margin-top: 130px;
+}
+
+#modal-header {
+    background-color: #002440;
+}
+#modal-header .btn-close {
+    background-color: white;
 }
