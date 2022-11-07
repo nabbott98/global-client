@@ -105,7 +105,7 @@ const App = () => {
                 <ChangePassword msgAlert={msgAlert} user={user} />
               </RequireAuth>}
           />
-
+{/* be careful of your indentation throughout your code */}
 					<Route
 						path='/cart'
 						element={
