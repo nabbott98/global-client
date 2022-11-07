@@ -11,21 +11,21 @@ const Home = (props) => {
 			</h2>
 			<div class="container"> 
 			{/* <img id='img' src='https://www.freeiconspng.com/thumbs/globe-png/globe-png-hd-1.png' /> */}
-			<div id="search-box">
-				{/* <input id="input"></input>
-				<button id="search">Search</button> */}
-				{/* <form>
-				<input type="search" placeholder="Search..."/>
-				<button type="submit">Search</button>
-				</form> */}
+				<div id="search-box">
+					{/* <input id="input"></input>
+					<button id="search">Search</button> */}
+					{/* <form>
+					<input type="search" placeholder="Search..."/>
+					<button type="submit">Search</button>
+					</form> */}
+				</div>
+				<div className="container">
+					<form id="form-search-button">
+					<input id="input-search" type="search" placeholder="Search..."/>
+					<button id="input-button" type="submit">Search</button>
+					</form>
+				</div>
 			</div>
-			<div className="container">
-				<form id="form-search-button">
-				<input id="input-search" type="search" placeholder="Search..."/>
-				<button id="input-button" type="submit">Search</button>
-				</form>
-			</div>
-		</div>
 		</div>
 	)
 }
