@@ -45,8 +45,10 @@ const authenticatedOptions = (
 
 
 		<Nav.Item className='ms-4'>
+
 			<Link to='#' style={linkStyle}>
 			</Link>
+
 			<Link to='/cart' style={linkStyle}>
 
 				Cart

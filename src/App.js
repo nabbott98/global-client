@@ -12,9 +12,11 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+
+
 import ItemShow from './components/Items/ItemShow'
 import ItemIndex from './components/Items/ItemIndex'
-import ItemCreate from './components/Items/ItemCreate';
+import ItemCreate from './components/Items/ItemCreate'
 import CheckoutForm from './PaymentForm'
 import {Elements} from '@stripe/react-stripe-js'
 import {loadStripe} from '@stripe/stripe-js'
