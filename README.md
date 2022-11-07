@@ -30,17 +30,17 @@
 
 ## Front End(Client)
 
-# API-imports
+### API-imports
     - user routes
     - item routes
     - cart routes
 
-# Components
+### Components
     - user
     - cart
     - items
 
-# Pages
+### Pages
     - main page
     - auth pages(sign-up,-in,-out)
     - cart page
