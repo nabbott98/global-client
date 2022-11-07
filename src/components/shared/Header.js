@@ -4,6 +4,10 @@ import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
 import './header.css'
 
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
+import SplitButton from 'react-bootstrap/SplitButton';
 const linkStyle = {
     color: 'white',
     textDecoration: 'none'
@@ -20,8 +24,13 @@ const authenticatedOptions = (
 				Create Item
 			</Link>
 		</Nav.Item>
+
+
 		<Nav.Item className='ms-4'>
+			<Link to='#' style={linkStyle}>
+
 			<Link to='/cart' style={linkStyle}>
+
 				Cart
 			</Link>
 		</Nav.Item>
@@ -40,6 +49,23 @@ const authenticatedOptions = (
 
 const unauthenticatedOptions = (
 	<>
+		{/* <Dropdown>
+        <Dropdown.Toggle id="dropdown-button" variant="primary">
+          Dropdown Button
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu variant="primary">
+          <Dropdown.Item href="#/action-1" active>
+            Action
+          </Dropdown.Item>
+          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown> */}
+
+
         <Nav.Item className='ms-4'>
 		    <Link to='sign-up' style={linkStyle}>Sign Up</Link>
         </Nav.Item>
@@ -64,7 +90,7 @@ const Header = ({ user }) => (
 		<Navbar.Brand>
 			<Nav id="global-button"  className="position-absolute top-50 start-50 translate-middle">
             <Link to='/' style={linkStyle}>
-                Global <img id="global-img" src='https://www.freeiconspng.com/thumbs/globe-png/globe-png-hd-1.png' />
+                Global <img id="global-img" src='https://www.freeiconspng.com/thumbs/globe-png/globe-png-hd-1.png' alt='global'/>
             </Link>
 			</Nav>
         </Navbar.Brand>

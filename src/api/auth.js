@@ -17,6 +17,7 @@ export const signUp = (credentials) => {
 	})
 }
 
+
 export const signIn = (credentials) => {
 	return axios({
 		url: apiUrl + '/sign-in',
@@ -58,6 +59,7 @@ export const changePassword = (passwords, user) => {
 //////////////////////////////////////////////////////////////////
 // update names
 export const userUpdate = (user) => {
+	console.log(user)
 	return axios({
 		method: 'PATCH',
 		url: apiUrl + '/user',
