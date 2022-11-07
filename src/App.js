@@ -26,7 +26,6 @@ import clientSecret from './PaymentForm'
 // async function stripePromise() {
 // 	return await loadStripe('pk_test_51LzixHFctdQVNwrZfvrkkfBX0bX2b6jWZ6eJnzYIPmUNh4vV5OueA9Ong8lbg5Y8lvaaHYRcBI6e0KZeiuKTixIk00nPUtcwLC')
 // }
-import ItemIndex from './components/Items/ItemIndex'
 
 import MyProfile from './components/auth/MyProfile'
 import CartIndex from './components/Cart/CartIndex'
@@ -130,7 +129,12 @@ const App = () => {
 					/>
 					<Route path='/items' element={
 						<RequireAuth user={user}>
-							<ItemsIndex msgAlert={msgAlert} user={user} />
+							<ItemIndex msgAlert={msgAlert} user={user} />
+						</RequireAuth>}
+					/>
+					<Route path='/items/:id' element={
+						<RequireAuth user={user}>
+							<ItemShow msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
 					/>
 					<Route
@@ -138,6 +142,14 @@ const App = () => {
 						element={
 						<RequireAuth user={user}>
 							<ItemCreate msgAlert={msgAlert} user={user} />
+						</RequireAuth>
+						}
+					/>
+					<Route
+						path='/cart'
+						element={
+						<RequireAuth user={user}>
+							<CartIndex msgAlert={msgAlert} user={user} />
 						</RequireAuth>
 						}
 					/>

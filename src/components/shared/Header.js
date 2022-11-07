@@ -20,11 +20,11 @@ const authenticatedOptions = (
 			</Link>
 		</Nav.Item>
 		<Nav.Item className='ms-4'>
-
 			<Link to='/create' style={linkStyle}>
 				Create Item
 			</Link>
 		</Nav.Item>
+
 
 		<Nav.Item className='ms-4'>
 			<Link to='#' style={linkStyle}>
