@@ -10,14 +10,7 @@ const Home = (props) => {
 				<span id='E-letter'>E</span> Business, Global Web!
 			</h2>
 			<div class="container"> 
-			{/* <img id='img' src='https://www.freeiconspng.com/thumbs/globe-png/globe-png-hd-1.png' /> */}
 				<div id="search-box">
-					{/* <input id="input"></input>
-					<button id="search">Search</button> */}
-					{/* <form>
-					<input type="search" placeholder="Search..."/>
-					<button type="submit">Search</button>
-					</form> */}
 				</div>
 				<div className="container">
 					<form id="form-search-button">
@@ -25,6 +18,15 @@ const Home = (props) => {
 					<button id="input-button" type="submit">Search</button>
 					</form>
 				</div>
+			</div>
+			<div id='all-items-box-div'>
+				<div class="single-item-box"></div>
+				<div class="single-item-box"></div>
+				<div class="single-item-box"></div>
+				<div class="single-item-box"></div>
+				<div class="single-item-box"></div>
+				<div class="single-item-box"></div>
+
 			</div>
 		</div>
 	)
